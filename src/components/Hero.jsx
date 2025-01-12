@@ -41,11 +41,11 @@ const Hero = ({bgImg, status}) => {
     <div className='w-full h-[250px] bg-gradient-to-t from-[#04152d] to-[#04152d 79.17%] absolute bottom-0 left-0'></div>
     <ContentWrapper>
       <div className='flex flex-col items-center text-white text-center relative max-w-[800px] mx-auto'>
-        <span className='text-5xl font-bold mb-3 md:mb-0 md:text-8xl'>
-          Welcome
+        <span className='text-4xl font-bold mb-3 md:mb-0 md:text-6xl'>
+        Welcome to the Movie Explorer
         </span>
-        <span className='text-lg font-medium mb-10 md:text-2xl'>
-          Millions of movies, TV shows and people to discover. Explore Now.
+        <span className='text-sm font-medium mb-10 md:text-xl'>
+        Discover the latest movies, explore top-rated films, and stay up to date with what's trending in the world of cinema. Dive into the world of entertainment with ease!
         </span>
         <div className='flex items-center w-full'>
           <input
@@ -60,7 +60,7 @@ const Hero = ({bgImg, status}) => {
             onClick={() => {
               navigate(`/search/${query}`);
             }}
-            className='w-24 h-12 font-bold bg-gradient-to-r from-[#f89e00] to-[#da2f68] text-white outline-none border-none rounded-r-[30px]  text-base cursor-pointer
+            className='w-24 h-12 font-bold bg-gradient-to-r from-pink-500 via-orange-500 to-yellow-500 text-white outline-none border-none rounded-r-[30px]  text-base cursor-pointer
                   md:w-36 md:h-16 md:text-lg'
           >
             Search

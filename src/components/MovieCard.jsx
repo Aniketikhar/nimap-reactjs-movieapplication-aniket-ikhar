@@ -9,7 +9,7 @@ const MovieCard = ({ movie }) => {
   console.log(movie);
   return (
     <div
-      onClick={() => navigate(`/detail/${movie.id}`)}
+      onClick={() => navigate(`/details/${movie.id}`)}
       key={movie.id}
       className="w-[170px] sm:w-[200px] md:w-[225px] pb-10  overflow-hidden transition-shadow duration-300"
     >
