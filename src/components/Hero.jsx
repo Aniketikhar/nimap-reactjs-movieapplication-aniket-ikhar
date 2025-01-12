@@ -32,7 +32,7 @@ const Hero = ({ bgImg, status }) => {
       <ContentWrapper>
         <div className="flex flex-col items-center text-white text-center relative max-w-[800px] mx-auto">
           <span className="text-4xl font-bold mb-3 md:mb-0 md:text-6xl">
-            Welcome to the Movie Explorer
+            Welcome to the Movies World
           </span>
           <span className="text-sm font-medium mb-10 md:text-xl">
             Discover the latest movies, explore top-rated films, and stay up to
