@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Hero from "../components/Hero";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies } from "../store/moviesSlice";
+import { fetchMovies } from "../store/Slices/moviesSlice";
 
 const Home = () => {
   const dispatch = useDispatch();

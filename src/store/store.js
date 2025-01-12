@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import moviesReducer from "./moviesSlice";
+import moviesReducer from "./Slices/moviesSlice";
+import searchReducer from "./Slices/searchSlice";
 
 const store = configureStore({
   reducer: {
     movies: moviesReducer,
+    search: searchReducer,
   },
 });
 
 export default store;
+
