@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
@@ -10,6 +8,7 @@ import Search from './pages/Search'
 import Navbar from './components/Navbar'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchMovies } from './store/Slices/moviesSlice'
+import Footer from './components/Footer'
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +28,7 @@ function App() {
         <Route path="/details/:id" element={<Details />} />
         <Route path="/search/:query" element={<Search />} />
       </Routes>
+      <Footer />
     </div>
   )
 }

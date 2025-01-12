@@ -1,10 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-// TMDb API key and base URL
 const API_KEY = import.meta.env.VITE_APP_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 
-// AsyncThunk to fetch the cast of a movie by movieId
 export const fetchMovieCast = createAsyncThunk(
   "movieCast/fetchMovieCast",
   async (movieId) => {
@@ -14,16 +12,16 @@ export const fetchMovieCast = createAsyncThunk(
       throw new Error("Failed to fetch movie cast.");
     }
     const data = await response.json();
-    return data.cast; // Array of cast members
+    return data.cast;
   }
 );
 
 const movieCastSlice = createSlice({
   name: "movieCast",
   initialState: {
-    cast: [], // Holds the cast details
-    status: "idle", // 'idle' | 'loading' | 'succeeded' | 'failed'
-    error: null, // Holds any error messages
+    cast: [],
+    status: "idle",
+    error: null,
   },
   reducers: {
     clearCast: (state) => {

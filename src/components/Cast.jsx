@@ -12,14 +12,12 @@ const Cast = ({ actor }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Cast Image */}
       <img
         src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
         alt={actor.name}
         className="w-24 h-24 object-contain rounded-full  shadow-md"
       />
 
-      {/* Popup for Additional Details */}
       {isHovered && (
         <div className="absolute bottom-28 -left-48 transform translate-x-1/2 w-64 bg-gray-800 text-white p-4 rounded-lg shadow-lg">
           <h3 className="text-lg font-bold">{actor.name}</h3>

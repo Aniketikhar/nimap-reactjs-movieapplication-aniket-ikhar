@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import noresult from "../assets/no-results.png";
-import Loading from "../components/loading/Loading";
 import MovieCard from "../components/MovieCard";
 
 const Category = () => {

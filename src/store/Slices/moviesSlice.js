@@ -1,10 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-// TMDb API key and base URL
 const API_KEY = import.meta.env.VITE_APP_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 
-// AsyncThunk for fetching movies
 export const fetchMovies = createAsyncThunk(
   "movies/fetchMovies",
   async (category) => {
@@ -21,7 +19,7 @@ const moviesSlice = createSlice({
     upcoming: [],
     popular: [],
     topRated: [],
-    status: "idle", // 'idle' | 'loading' | 'succeeded' | 'failed'
+    status: "idle",
     error: null,
   },
   reducers: {},

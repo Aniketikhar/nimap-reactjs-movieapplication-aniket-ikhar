@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import Hero from "../components/Hero";
 import { useSelector } from "react-redux";
-import noposter from "../assets/no-poster.png";
-import { Navigate, useNavigate } from "react-router-dom";
 import Slider from "../components/Slider";
 
 const Home = () => {
