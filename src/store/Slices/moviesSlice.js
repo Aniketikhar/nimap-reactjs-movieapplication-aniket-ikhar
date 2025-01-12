@@ -5,11 +5,11 @@ const BASE_URL = "https://api.themoviedb.org/3";
 
 export const fetchMovies = createAsyncThunk(
   "movies/fetchMovies",
-  async (category) => {
-    const url = `${BASE_URL}/movie/${category}?api_key=${API_KEY}&language=en-US&page=1`;
+  async ({ category, page = 1 }) => {
+    const url = `${BASE_URL}/movie/${category}?api_key=${API_KEY}&language=en-US&page=${page}`;
     const response = await fetch(url);
     const data = await response.json();
-    return { category, results: data.results };
+    return { category, page, results: data.results, totalPages: data.total_pages };
   }
 );
 
@@ -18,7 +18,17 @@ const moviesSlice = createSlice({
   initialState: {
     upcoming: [],
     popular: [],
-    topRated: [],
+    top_rated: [],
+    page: {
+      upcoming: 1,
+      popular: 1,
+      topRated: 1,
+    },
+    totalPages: {
+      upcoming: 1,
+      popular: 1,
+      topRated: 1,
+    },
     status: "idle",
     error: null,
   },
@@ -29,11 +39,14 @@ const moviesSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchMovies.fulfilled, (state, action) => {
-        const { category, results } = action.payload;
+        const { category, page, results, totalPages } = action.payload;
         state.status = "succeeded";
+        state.page[category] = page;
+        state.totalPages[category] = totalPages;
+
         if (category === "upcoming") state.upcoming = results;
         if (category === "popular") state.popular = results;
-        if (category === "top_rated") state.topRated = results;
+        if (category === "top_rated") state.top_rated = results;
       })
       .addCase(fetchMovies.rejected, (state, action) => {
         state.status = "failed";

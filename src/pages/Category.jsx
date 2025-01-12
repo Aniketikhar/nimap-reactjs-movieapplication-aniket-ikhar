@@ -1,41 +1,42 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import noresult from "../assets/no-results.png";
 import MovieCard from "../components/MovieCard";
+import { fetchMovies } from "../store/Slices/moviesSlice";
+import ReactPaginate from "react-paginate";
 
 const Category = () => {
   const { category } = useParams();
   const [movies, setMovies] = useState();
+  const dispatch = useDispatch();
 
-  const { upcoming, popular, topRated, status, error } = useSelector(
-    (state) => state.movies
-  );
+  const fechedmovies = useSelector((state) => state.movies[category]);
+  const status = useSelector((state) => state.movies.status);
+  const error = useSelector((state) => state.movies.error);
+  const currentPage = useSelector((state) => state.movies.page[category]);
+  const totalPages = useSelector((state) => state.movies.totalPages[category]);
 
   useEffect(() => {
-    switch (category) {
-      case "upcoming":
-        setMovies(upcoming || []);
-        break;
-      case "popular":
-        setMovies(popular || []);
-        break;
-      case "top_rated":
-        setMovies(topRated || []);
-        break;
-      default:
-        setMovies([]);
-        break;
-    }
-  }, [category, upcoming, popular, topRated]);
+    setMovies(fechedmovies || []);
+  }, [category, fechedmovies]);
 
-  console.log(category);
+  const handlePageChange = (selectedPage) => {
+    const selectedPageNumber = selectedPage.selected + 1; // react-paginate uses 0-based index
+    dispatch(fetchMovies({ category, page: selectedPageNumber }));
+  };
   return (
     <>
       <div className="min-h-screen pt-28">
         <div className="container mx-auto">
           <div className="text-xl font-semibold text-gray-200 ml-2 md:ml-8 my-4">
-            {category == "popular" ? "Popular" : category == "top_rated" ? "Top Rated" : category == "upcoming" ? "Upcoming" : ""}
+            {category == "popular"
+              ? "Popular"
+              : category == "top_rated"
+              ? "Top Rated"
+              : category == "upcoming"
+              ? "Upcoming"
+              : ""}
           </div>
           <div className="flex flex-wrap gap-5 justify-center mb-5">
             {movies?.length > 0 ? (
@@ -44,6 +45,22 @@ const Category = () => {
               <div>
                 <img src={noresult} width={400} alt="" />
               </div>
+            )}
+          </div>
+          <div className="flex justify-center p-4 ">
+            {totalPages > 1 && (
+              <ReactPaginate
+                previousLabel={"<<"}
+                nextLabel={">>"}
+                breakLabel={"..."}
+                pageCount={totalPages}
+                onPageChange={handlePageChange}
+                containerClassName={"pagination"}
+                pageClassName={"page-item"}
+                pageLinkClassName={"page-link"}
+                activeClassName={"active"}
+                disabledClassName={"disabled"}
+              />
             )}
           </div>
         </div>

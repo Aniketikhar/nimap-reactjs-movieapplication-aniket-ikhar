@@ -3,3 +3,48 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px;
+    background: rgb(226, 211, 225);
+    border-radius: 20px;
+  }
+  
+  .page-item {
+    margin: 0 5px;
+  }
+  
+  .page-link {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .page-link:hover {
+    background-color: #13c8ff;
+    color: white;
+  }
+  
+  .active .page-link {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .disabled .page-link {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  .page-item:first-child .page-link {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+  
+  .page-item:last-child .page-link {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }

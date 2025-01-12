@@ -89,13 +89,16 @@ const Details = () => {
                       </div>
                     </div>
                     <div className="rounded-[50px] max-w-[60px] md:max-w-[60px]  mt-5"></div>
-                    <div className="mb-[25px]">
+                    <div className="mb-[15px]">
                       <div className="text-[24px] mb-[10px] mt-[20px]">
                         Overview
                       </div>
                       <div className="leading-6 md:pr-[100px]">
                         {details.overview}
                       </div>
+                    </div>
+                    <div className="mb-5">
+                      <p>{details?.runtime} min runtime <br /> released on {details?.release_date}</p>
                     </div>
                     <div className="flex gap-3 mb-5">
                       {details?.genres.map((genre) => (

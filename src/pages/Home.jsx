@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import Slider from "../components/Slider";
 
 const Home = () => {
-  const { upcoming, popular, topRated, status, error } = useSelector(
+  const { upcoming, popular, top_rated, status, error } = useSelector(
     (state) => state.movies
   );
 
@@ -45,7 +45,7 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <Slider movies={topRated} />
+          <Slider movies={top_rated} />
         </div>
       </div>
     </div>
