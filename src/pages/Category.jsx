@@ -35,8 +35,8 @@ const Category = () => {
     <>
       <div className="min-h-screen pt-28">
         <div className="container mx-auto">
-          <div className="text-xl text-gray-200 ml-2 md:ml-8 my-4">
-            {category}
+          <div className="text-xl font-semibold text-gray-200 ml-2 md:ml-8 my-4">
+            {category == "popular" ? "Popular" : category == "top_rated" ? "Top Rated" : category == "upcoming" ? "Upcoming" : ""}
           </div>
           <div className="flex flex-wrap gap-5 justify-center mb-5">
             {movies?.length > 0 ? (

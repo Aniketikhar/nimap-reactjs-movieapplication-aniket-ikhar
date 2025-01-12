@@ -24,11 +24,7 @@ const Cast = ({ actor }) => {
         <div className="absolute bottom-28 -left-48 transform translate-x-1/2 w-64 bg-gray-800 text-white p-4 rounded-lg shadow-lg">
           <h3 className="text-lg font-bold">{actor.name}</h3>
           <p className="text-sm text-gray-400">{actor.character}</p>
-          <p className="text-sm mt-2">
-            {actor.biography
-              ? actor.biography.substring(0, 100) + "..."
-              : "No biography available."}
-          </p>
+          
         </div>
       )}
     </div>

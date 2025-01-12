@@ -9,22 +9,22 @@ const MovieCard = ({ movie }) => {
   console.log(movie);
   return (
     <div
-      onClick={() => navigate(`/details/${movie.id}`)}
-      key={movie.id}
+      onClick={() => navigate(`/details/${movie?.id}`)}
+      key={movie?.id}
       className="w-[170px] sm:w-[200px] md:w-[225px] pb-10  overflow-hidden transition-shadow duration-300"
     >
       <div className="relative  w-full aspect-[1/1.8] bg-cover bg-center  flex items-end justify-between ">
         <Img
           className={"rounded-2xl"}
-          src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`: noposter}
+          src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500/${movie?.poster_path}`: noposter}
         />
       </div>
       <div className="text-white flex flex-col -mt-14">
         <span className="text-base mb-[10px] leading-6">
-          {movie.title || movie.name}
+          {movie?.title || movie?.name}
         </span>
         <span className="text-sm opacity-50">
-          {dayjs(movie.release_date).format("MMM D, YYYY")}
+          {dayjs(movie?.release_date).format("MMM D, YYYY")}
         </span>
       </div>
     </div>

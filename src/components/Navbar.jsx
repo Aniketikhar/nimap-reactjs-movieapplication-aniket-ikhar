@@ -75,7 +75,7 @@ const Navbar = () => {
       <ContentWrapper>
         <div className='flex text-white justify-between items-center'>
           <div className=''>
-            <a href='/' className='text-xl font-bold text-orange-500'>
+            <a href='/' className='text-2xl font-bold text-orange-500'>
               {/* <img src={logo} alt='' /> */}
               Movies World
             </a>
