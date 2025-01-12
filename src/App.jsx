@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -8,9 +8,17 @@ import Category from './pages/Category'
 import Details from './pages/Details'
 import Search from './pages/Search'
 import Navbar from './components/Navbar'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchMovies } from './store/Slices/moviesSlice'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchMovies("upcoming"));
+    dispatch(fetchMovies("popular"));
+    dispatch(fetchMovies("top_rated"));
+  }, [dispatch]);
 
   return (
     <div className='bg-gray-900'>

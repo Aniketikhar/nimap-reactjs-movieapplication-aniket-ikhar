@@ -4,16 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies } from "../store/Slices/moviesSlice";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const { upcoming, popular, topRated, status, error } = useSelector(
-    (state) => state.movies
-  );
-
-  useEffect(() => {
-    dispatch(fetchMovies("upcoming"));
-    dispatch(fetchMovies("popular"));
-    dispatch(fetchMovies("top_rated"));
-  }, [dispatch]);
+  const { upcoming, status, error } = useSelector((state) => state.movies);
 
   if (status === "loading") return <p>Loading movies...</p>;
   if (status === "failed") return <p>Error: {error}</p>;
