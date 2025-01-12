@@ -40,11 +40,9 @@ const Navbar = () => {
   };
 
   const navigationhandler = (type) => {
-    if (type === 'movie') {
-      navigate('/explore/movie');
-    } else if (type === 'tv') {
-      navigate('/explore/tv');
-    }
+   
+      navigate(`/category/${type}`);
+ 
     setMobileMenu(false);
   };
 
@@ -82,18 +80,24 @@ const Navbar = () => {
               Movies World
             </a>
           </div>
-          <ul className='hidden md:flex items-center font-bold text-xl '>
+          <ul className='hidden md:flex items-center font-semibold text-xl '>
             <li
               className='mx-4 cursor-pointer hover:text-fuchsia-600'
-              onClick={() => navigationhandler('movie')}
+              onClick={() => navigationhandler('popular')}
             >
-              Movies
+              Popular
             </li>
             <li
               className='mx-4 cursor-pointer hover:text-fuchsia-600'
-              onClick={() => navigationhandler('tv')}
+              onClick={() => navigationhandler('top_rated')}
             >
-              TV Shows
+              Top Rated
+            </li>
+            <li
+              className='mx-4 cursor-pointer hover:text-fuchsia-600'
+              onClick={() => navigationhandler('upcoming')}
+            >
+              Upcoming
             </li>
             <li className='mx-4 cursor-pointer hover:text-fuchsia-600'>
               <HiOutlineSearch onClick={openSearch} />
@@ -115,11 +119,23 @@ const Navbar = () => {
         </div>
         {mobileMenu && (
           <ul className='bg-[#04152d] bg-opacity-80 p-2 absolute m-auto left-0 right-0 text-xl text-white text-center shadow-lg'>
-            <li className='mb-4' onClick={() => navigationhandler('movie')}>
-              Movies
+             <li
+              className='mx-4 cursor-pointer hover:text-fuchsia-600'
+              onClick={() => navigationhandler('popular')}
+            >
+              Popular
             </li>
-            <li className='mt-4' onClick={() => navigationhandler('tv')}>
-              TV Shows
+            <li
+              className='mx-4 cursor-pointer hover:text-fuchsia-600'
+              onClick={() => navigationhandler('top_rated')}
+            >
+              Top Rated
+            </li>
+            <li
+              className='mx-4 cursor-pointer hover:text-fuchsia-600'
+              onClick={() => navigationhandler('upcoming')}
+            >
+              Upcoming
             </li>
           </ul>
         )}

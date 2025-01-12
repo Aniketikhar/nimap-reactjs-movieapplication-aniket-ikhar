@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/category/:category" element={<Category />} />
         <Route path="/details/:id" element={<Details />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search/:query" element={<Search />} />
       </Routes>
     </div>
   )
